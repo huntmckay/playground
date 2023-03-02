@@ -1,15 +1,20 @@
 # wyrdle.py
 
+WORD = "SNAKE"
+
 for guess_count in range(1,7):
-    word = "SNAKE"
     guess = input(f"\nGuess {guess_count}: ").upper()
-    correct_letters = set(word) & set(guess)
-    #misplaced_letters = 
-    wrong_letters = set(word) - set(guess)
-    print(f"The correct letters are {correct_letters}")
-    print(f"The wrong letters are {wrong_letters}")
-    if guess == word:
+    if guess == WORD:
         print("correct")
         break
 
-    print("wrong")
+
+    correct_letters = { letter for letter, correct in zip(guess, WORD) if letter == correct }
+
+    misplaced_letters = set(guess) & set(WORD) - correct_letters
+
+    wrong_letters = set(guess) - set(WORD)
+
+    print("Correct Letters:", ", ".join(sorted(correct_letters)))
+    print("Misplaced Letters:", ", ".join(sorted(misplaced_letters)))
+    print("Wrongn Letters:", ", ".join(sorted(wrong_letters)))
