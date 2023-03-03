@@ -25,8 +25,8 @@ for guess_count in range(1,7):
 
     wrong_letters = set(guess) - set(word)
 
-    print("Correct Letters:", ", ".join(sorted(correct_letters)))
-    print("Misplaced Letters:", ", ".join(sorted(misplaced_letters)))
-    print("Wrong Letters:", ", ".join(sorted(wrong_letters)))
+    print("Correct Letters:", ", ".join(correct_letters))
+    print("Misplaced Letters:", ", ".join(misplaced_letters))
+    print("Wrong Letters:", ", ".join(wrong_letters))
 else:
     print(f"Secret word was {word}")
