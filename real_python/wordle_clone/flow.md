@@ -5,8 +5,8 @@
 Title: wydle.py
 ---
 flowchart LR
-    A[python3 wyrdle.py] --> B{Guess}
-    B --> C(Wrong) --> B
-    B -->|5 Wrong guess| D[End, display word]
-    B -->|Correct Guess| E[Correct display word]
+    A[python3 wyrdle.py] --> B{User Guess}
+    B --> C(Wrong Guess +1 counter) --> B
+    C --> F|Guess Counter| --> G[End & display word]
+    B --> D(Correct Guess) --> E[Break & display word]
 ```
