@@ -6,7 +6,7 @@ Title: wydle.py
 ---
 flowchart LR
     A[python3 wyrdle.py] --> B{User Guess}
-    B --> C(Wrong Guess +1 counter) --> B
-    C --> F|Guess Counter| --> G[End & display word]
-    B --> D(Correct Guess) --> E[Break & display word]
+    B --> C(Check Guess) --> D
+    D --> E|Wrong Guess| --> B
+    D --> F|Correct Guess| --> G[Break & display word]
 ```
