@@ -15,6 +15,15 @@ def get_random_word():
     return random.choice(words)
     
 def show_guess(guess,word):
+    """Show the user's guess on the terminal and classify all letters.
+
+    ## Example:
+
+    >>> show_guess("CRANE", "SNAKE")
+    Correct letters: A, E
+    Misplaced letters: N
+    Wrong letters: C, R
+    """
 
     if guess == word:
         return True
