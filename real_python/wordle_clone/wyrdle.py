@@ -2,6 +2,7 @@
 
 import pathlib
 import random
+from string import ascii_letters
 
 def get_random_word():
     
@@ -11,9 +12,7 @@ def get_random_word():
         for word in wordlist.read_text(encoding="utf-8").strip().split("\n")
         if len(word) == 5 and all(letter in ascii_letters for letter in word)
     ]
-    word = random.choice(words)
-    print(f"Secret word is {word}")
-    return word
+    return random.choice(words)
     
 def show_guess(guess,word):
 
@@ -39,7 +38,8 @@ def main():
     
     #Pre-Process
     word = get_random_word()
-    
+    print(f"Secret word is {word}")
+
     #Main Process
     for guess_count in range(1,7):
         guess = input(f"\nGuess {guess_count}: ").upper()
