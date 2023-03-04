@@ -38,6 +38,9 @@ def main():
     
     #Pre-Process
     word = get_random_word()
+    assert type(word) is str
+    assert len(word) == 5
+
     print(f"Secret word is {word}")
 
     #Main Process
@@ -46,6 +49,7 @@ def main():
         if show_guess(guess,word):
             end_game(word,win=True)
             break
+
     #Post-Process
     else:
         end_game(word,win=False)
