@@ -10,7 +10,7 @@ with open('employee_birthday.txt') as csv_file:
             print(f'Column names are {", ".join(row)}')
             line_count += 1
         else:
-            print(f'\t{row["name"]} works in the {row["department"]} department, and was born in {row["birthday month"]}')
+            print(f'{row["name"]} works in the {row["department"]} department, and was born in {row["birthday month"]}')
             line_count +=1
     print(f'Processed {line_count - 1} lines.')
 
