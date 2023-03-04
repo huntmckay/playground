@@ -10,8 +10,9 @@ flowchart LR
     C --> D(Check Guess)
     D --> F(Show Guess)
     F --> G{Word Guessed?}
-    G --> |YES| H(Win) --> Z[END]
+    G --> |YES| H(Win) --> Y(Display Word)
     G --> |NO| I{Guess Count <= 5 ?} 
-    I --> |Yes| B
-    I --> |NO| J(Lose) --> Z[END]
+    I --> |Yes| C
+    I --> |NO| J(Lose) --> Y(Display Word)
+    Y --> Z[END]
 ```
