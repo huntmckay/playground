@@ -5,11 +5,11 @@ import random
 
 def get_random_word():
     
-    WORDLIST = pathlib.Path("wordlist.txt")
-
+    wordlist = pathlib.Path(__file__).parent / "wordlist.txt"
     words = [
         word.upper()
-        for word in WORDLIST.read_text(encoding="utf-8").strip().split("\n")
+        for word in wordlist.read_text(encoding="utf-8").strip().split("\n")
+        if len(word) == 5 and all(letter in ascii_letters for letter in word)
     ]
     word = random.choice(words)
     print(f"Secret word is {word}")
