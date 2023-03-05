@@ -4,14 +4,13 @@ import pathlib
 import random
 from string import ascii_letters
 
-def get_random_word():
-    
-    wordlist = pathlib.Path(__file__).parent / "wordlist.txt"
+def get_random_word(wordlist):
     words = [
         word.upper()
-        for word in wordlist.read_text(encoding="utf-8").strip().split("\n")
+        for word in wordlist
         if len(word) == 5 and all(letter in ascii_letters for letter in word)
     ]
+
     return random.choice(words)
     
 def show_guess(guess,word):
@@ -32,9 +31,9 @@ def show_guess(guess,word):
         misplaced_letters = set(guess) & set(word) - correct_letters
         wrong_letters = set(guess) - set(word)
 
-        print("Correct Letters:", ", ".join(correct_letters))
-        print("Misplaced Letters:", ", ".join(misplaced_letters))
-        print("Wrong Letters:", ", ".join(wrong_letters))
+        print("Correct letters:", ", ".join(correct_letters))
+        print("Misplaced letters:", ", ".join(misplaced_letters))
+        print("Wrong letters:", ", ".join(wrong_letters))
         
 def end_game(word,win):
     
@@ -46,10 +45,8 @@ def end_game(word,win):
 def main():
     
     #Pre-Process
-    word = get_random_word()
-    assert type(word) is str
-    assert len(word) == 5
-
+    word_path = pathlib.Path(__file__).parent / "wordlist.txt"
+    word = get_random_word(word_path.read_text(encoding="utf-8").split("\n")) 
     print(f"Secret word is {word}")
 
     #Main Process
