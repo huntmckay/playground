@@ -5,6 +5,13 @@ import random
 from string import ascii_letters
 
 def get_random_word(wordlist):
+    """get a random word with length of 5 from list of strings
+    
+    ## Example:
+
+    >>> get_random_word(["snake","dogs","pickle"])
+    'SNAKE'
+    """ 
     words = [
         word.upper()
         for word in wordlist
